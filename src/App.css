@@ -3,9 +3,8 @@ h1 {
 }
 
 #donut {
-  height: 250px;
-  widows: 250px;
-  float: right;
+  height: 10rem;
+  width: 12rem;
   -webkit-user-drag: none;
   cursor: move;
 }
