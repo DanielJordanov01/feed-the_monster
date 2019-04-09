@@ -1,10 +1,14 @@
 import React from "react";
-import donut from "../donut.png";
 
-function Donut() {
+function Donut({ donut, visibility }) {
   return (
     <div>
-      <img id="donut" src={donut} alt="" />
+      <img
+        id="donut"
+        src={donut}
+        alt="donut"
+        style={{ visibility: visibility }}
+      />
     </div>
   );
 }
