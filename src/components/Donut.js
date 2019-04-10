@@ -1,14 +1,9 @@
 import React from "react";
 
-function Donut({ donut, visibility }) {
+function Donut({ donut, visibility, donutClassName }) {
   return (
     <div>
-      <img
-        id="donut"
-        src={donut}
-        alt="donut"
-        style={{ visibility: visibility }}
-      />
+      <img id="donut" src={donut} alt="donut" className={donutClassName} />
     </div>
   );
 }

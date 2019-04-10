@@ -12,3 +12,11 @@ h1 {
 #Gabi {
   display: inline-block;
 }
+
+.donutdefault {
+  height: 10rem;
+  width: 12rem;
+  -webkit-user-drag: none;
+  cursor: move;
+  visibility: visible;
+}
