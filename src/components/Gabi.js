@@ -1,9 +1,10 @@
 import React from "react";
+import gabi from "../gabi.png";
 
 const Gabi = () => {
   return (
     <div id="Gabi">
-      <h2>gabi</h2>
+      <img id="gabi" src={gabi} alt="gabi" />
     </div>
   );
 };

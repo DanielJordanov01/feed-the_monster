@@ -1,38 +1,72 @@
 import React, { Component } from "react";
-// import ReactDOM from "react-dom";
+import Particles from "react-particles-js";
 import Gabi from "./components/Gabi";
 import Donut from "./components/Donut";
 import { DragDropContainer, DropTarget } from "react-drag-drop-container";
 import donut1 from "./donut.png";
 import donut2 from "./donut2.png";
+import eatingSound from "./eating.mp3";
 import "tachyons";
 import "./App.css";
+
+const audio = new Audio(eatingSound);
+
+const particlesOptions = {
+  particles: {
+    number: {
+      value: 20,
+      density: {
+        enable: true,
+        value_area: 800
+      }
+    },
+    shape: {
+      type: "images",
+      images: [
+        {
+          src:
+            "http://www.stickpng.com/assets/images/584fcc806a5ae41a83ddee8c.png",
+          width: 55,
+          height: 55
+        },
+        {
+          src: "http://pngimg.com/uploads/donut/donut_PNG92.png",
+          width: 55,
+          height: 55
+        }
+      ]
+    },
+    size: {
+      value: 20
+    },
+    line_linked: {
+      enable: false,
+      distance: 0
+    }
+  }
+};
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       counter: 0,
-      calories: 0,
-      visibility: ""
+      calories: 0
     };
   }
 
   onEat = e => {
-    // let visibility = "";
     e.containerElem.style.visibility = "hidden";
     let counter = this.state.counter + 1;
     let calorieTaken = this.state.calories + 452.2;
     this.setState({
       counter: counter,
       calories: calorieTaken
-      // visibility: visibility
     });
+    audio.play();
   };
 
   fillBox = e => {
-    // const donutClassName = "donutdefault";
-    // this.setState({ donutClassName });
     this.refs.donut.containerElem.style.visibility = "visible";
     this.refs.donut1.containerElem.style.visibility = "visible";
     this.refs.donut2.containerElem.style.visibility = "visible";
@@ -43,19 +77,21 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App flex flex-column">
-        <h1 className="mb6">Нахрани Габи!</h1>
-        <h2 className="tc ">
+      <div className="App flex flex-column flex-wrap mh2">
+        <Particles className="particles" params={particlesOptions} />
+        <h1 className="h1 first-heading">Нахрани Габи!</h1>
+        <h2 className="tc h3">
           Донъти, които Габи е изяла: {this.state.counter}
         </h2>
-        <h2 className="tc">
+        <h2 className="tc h3">
           Калории: {Math.round(this.state.calories * 100) / 100} kcal
         </h2>
-        <div className="flex justify-center justify-between mh5 mv5">
+        <div className="container12 flex justify-center justify-between">
           <DropTarget targetKey="foo" onHit={this.onEat}>
             <Gabi />
           </DropTarget>
-          <div className="donutBox">
+
+          <div className="donutBox mv5">
             <div className="donuts">
               <DragDropContainer ref="donut" targetKey="foo">
                 <Donut visibility={this.state.visibility} donut={donut1} />
@@ -77,7 +113,7 @@ class App extends Component {
                 <Donut visibility={this.state.visibility} donut={donut2} />
               </DragDropContainer>
             </div>
-            <button onClick={this.fillBox} className="ml6 mv4">
+            <button className="btn btn-dark" onClick={this.fillBox}>
               Напълни кутията с донъти
             </button>
           </div>

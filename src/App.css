@@ -1,3 +1,24 @@
+body {
+  background: #1d4350; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #1d4350,
+    #a43931
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #1d4350, #a43931);
+  font-family: "Indie Flower", cursive;
+  color: #f4f4f4;
+}
+
+.particles {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
 h1 {
   text-align: center;
 }
@@ -9,14 +30,125 @@ h1 {
   cursor: move;
 }
 
+.donuts {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 #Gabi {
   display: inline-block;
 }
 
-.donutdefault {
-  height: 10rem;
-  width: 12rem;
-  -webkit-user-drag: none;
-  cursor: move;
-  visibility: visible;
+#gabi {
+  width: 330px;
+  height: auto;
+}
+
+.first-heading {
+  margin-bottom: 8rem;
+}
+
+button {
+  width: 161px;
+  margin-left: 35%;
+}
+
+@media (max-width: 1058px) {
+  #donut {
+    height: 5rem;
+    width: 7rem;
+    margin: 0;
+  }
+
+  .container12 {
+    margin-top: 4rem;
+  }
+
+  .btn {
+    width: 161px;
+    margin-left: 25%;
+    font-size: 1rem;
+  }
+
+  #gabi {
+    width: 240px;
+    height: auto;
+  }
+
+  .first-heading {
+    margin-bottom: 5.5rem;
+  }
+}
+
+@media (max-width: 808px) {
+  #donut {
+    height: 4rem;
+    width: 6rem;
+    margin: 0;
+  }
+
+  #gabi {
+    width: 200px;
+    height: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  #donut {
+    height: 4rem;
+    width: 6rem;
+    margin: 0;
+  }
+
+  .btn {
+    width: 113px;
+    margin-left: 28%;
+    font-size: 0.7rem;
+  }
+
+  #gabi {
+    width: 180px;
+    height: auto;
+  }
+}
+
+@media (max-width: 605px) {
+  #donut {
+    height: 3.4rem;
+    width: 5rem;
+    margin: 0;
+  }
+  button {
+    width: 161px;
+    margin-left: 16%;
+  }
+
+  #gabi {
+    width: 180px;
+    height: auto;
+  }
+}
+
+@media (max-width: 530px) {
+  #donut {
+    height: 2.7rem;
+    width: 3.7rem;
+    margin-right: 0px;
+    padding-right: 0px;
+  }
+
+  .container12 {
+    margin-top: 5.5rem;
+  }
+
+  .btn {
+    width: 113px;
+    margin-left: 18%;
+    font-size: 0.7rem;
+  }
+
+  #gabi {
+    width: 150px;
+    height: auto;
+  }
 }
