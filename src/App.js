@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Particles from "react-particles-js";
 import Gabi from "./components/Gabi";
 import Donut from "./components/Donut";
+import FirstPage from "./components/FirstPage";
 import { DragDropContainer, DropTarget } from "react-drag-drop-container";
 import donut1 from "./donut.png";
 import donut2 from "./donut2.png";
@@ -51,7 +52,8 @@ class App extends Component {
     super(props);
     this.state = {
       counter: 0,
-      calories: 0
+      calories: 0,
+      route: "firstPage"
     };
   }
 
@@ -75,49 +77,62 @@ class App extends Component {
     this.refs.donut5.containerElem.style.visibility = "visible";
   };
 
+  onRouteChange = () => {
+    const newRoute = "signedIn";
+    this.setState({ route: newRoute });
+  };
+
   render() {
     return (
       <div className="App flex flex-column flex-wrap mh2">
-        <Particles className="particles" params={particlesOptions} />
-        <h1 className="h1 first-heading">Нахрани Габи!</h1>
-        <h2 className="tc h3">
-          Донъти, които Габи е изяла: {this.state.counter}
-        </h2>
-        <h2 className="tc h3">
-          Калории: {Math.round(this.state.calories * 100) / 100} kcal
-        </h2>
-        <div className="container12 flex justify-center justify-between">
-          <DropTarget targetKey="foo" onHit={this.onEat}>
-            <Gabi />
-          </DropTarget>
-
-          <div className="donutBox mv5">
-            <div className="donuts">
-              <DragDropContainer ref="donut" targetKey="foo">
-                <Donut visibility={this.state.visibility} donut={donut1} />
-              </DragDropContainer>
-              <DragDropContainer ref="donut1" targetKey="foo">
-                <Donut visibility={this.state.visibility} donut={donut2} />
-              </DragDropContainer>
-              <DragDropContainer ref="donut2" targetKey="foo">
-                <Donut visibility={this.state.visibility} donut={donut1} />
-              </DragDropContainer>
-              <br />
-              <DragDropContainer ref="donut3" targetKey="foo">
-                <Donut visibility={this.state.visibility} donut={donut2} />
-              </DragDropContainer>
-              <DragDropContainer ref="donut4" targetKey="foo">
-                <Donut visibility={this.state.visibility} donut={donut1} />
-              </DragDropContainer>
-              <DragDropContainer ref="donut5" targetKey="foo">
-                <Donut visibility={this.state.visibility} donut={donut2} />
-              </DragDropContainer>
-            </div>
-            <button className="btn btn-dark" onClick={this.fillBox}>
-              Напълни кутията с донъти
-            </button>
+        {this.state.route === "firstPage" ? (
+          <div>
+            <Particles className="particles" params={particlesOptions} />
+            <FirstPage onRouteChange={this.onRouteChange} />
           </div>
-        </div>
+        ) : (
+          <div>
+            <h1 className="h1 first-heading">Нахрани Габи!</h1>
+            <h2 className="tc h3">
+              Донъти, които Габи е изяла: {this.state.counter}
+            </h2>
+            <h2 className="tc h3">
+              Калории: {Math.round(this.state.calories * 100) / 100} kcal
+            </h2>
+            <div className="container12 flex justify-center justify-between">
+              <DropTarget targetKey="foo" onHit={this.onEat}>
+                <Gabi />
+              </DropTarget>
+
+              <div className="donutBox mv5">
+                <div className="donuts">
+                  <DragDropContainer ref="donut" targetKey="foo">
+                    <Donut visibility={this.state.visibility} donut={donut1} />
+                  </DragDropContainer>
+                  <DragDropContainer ref="donut1" targetKey="foo">
+                    <Donut visibility={this.state.visibility} donut={donut2} />
+                  </DragDropContainer>
+                  <DragDropContainer ref="donut2" targetKey="foo">
+                    <Donut visibility={this.state.visibility} donut={donut1} />
+                  </DragDropContainer>
+                  <br />
+                  <DragDropContainer ref="donut3" targetKey="foo">
+                    <Donut visibility={this.state.visibility} donut={donut2} />
+                  </DragDropContainer>
+                  <DragDropContainer ref="donut4" targetKey="foo">
+                    <Donut visibility={this.state.visibility} donut={donut1} />
+                  </DragDropContainer>
+                  <DragDropContainer ref="donut5" targetKey="foo">
+                    <Donut visibility={this.state.visibility} donut={donut2} />
+                  </DragDropContainer>
+                </div>
+                <button className="btn btn-dark" onClick={this.fillBox}>
+                  Напълни кутията с донъти
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     );
   }

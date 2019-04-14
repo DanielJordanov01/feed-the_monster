@@ -53,6 +53,21 @@ button {
   margin-left: 35%;
 }
 
+.firstHeading {
+  margin-top: 260px;
+}
+
+.firstHeading h1 {
+  font-size: 46px;
+  margin-bottom: 80px;
+}
+
+.firstHeading button {
+  width: 250px;
+  font-size: 2rem;
+  margin: auto;
+}
+
 @media (max-width: 1058px) {
   #donut {
     height: 5rem;
@@ -150,5 +165,9 @@ button {
   #gabi {
     width: 150px;
     height: auto;
+  }
+
+  .firstHeading {
+    margin-top: 160px;
   }
 }
