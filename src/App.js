@@ -53,7 +53,8 @@ class App extends Component {
     this.state = {
       counter: 0,
       calories: 0,
-      route: "firstPage"
+      route: "firstPage",
+      toggler: "static"
     };
   }
 
@@ -70,11 +71,21 @@ class App extends Component {
 
   fillBox = e => {
     this.refs.donut.containerElem.style.visibility = "visible";
+    this.refs.donut.containerElem.style.position = this.state.toggler;
     this.refs.donut1.containerElem.style.visibility = "visible";
     this.refs.donut2.containerElem.style.visibility = "visible";
     this.refs.donut3.containerElem.style.visibility = "visible";
     this.refs.donut4.containerElem.style.visibility = "visible";
     this.refs.donut5.containerElem.style.visibility = "visible";
+    let togglerVar = this.state.toggler;
+
+    if (togglerVar === "static") {
+      togglerVar = "relative";
+    } else {
+      togglerVar = "static";
+    }
+
+    this.setState({ toggler: togglerVar });
   };
 
   onRouteChange = () => {
@@ -126,7 +137,11 @@ class App extends Component {
                     <Donut visibility={this.state.visibility} donut={donut2} />
                   </DragDropContainer>
                 </div>
-                <button className="btn btn-dark" onClick={this.fillBox}>
+                <button
+                  ref="button"
+                  className="btn btn-dark"
+                  onClick={this.fillBox}
+                >
                   Напълни кутията с донъти
                 </button>
               </div>
