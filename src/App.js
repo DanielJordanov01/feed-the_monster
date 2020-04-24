@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Particles from "react-particles-js";
-import Gabi from "./components/Gabi";
+import DonutMonster from "./components/DonutMonster";
 import Donut from "./components/Donut";
 import FirstPage from "./components/FirstPage";
 import { DragDropContainer, DropTarget } from "react-drag-drop-container";
@@ -103,16 +103,16 @@ class App extends Component {
           </div>
         ) : (
           <div>
-            <h1 className="h1 first-heading">Нахрани Габи!</h1>
+            <h1 className="h1 first-heading">Feed the Donut Monster!</h1>
             <h2 className="tc h3">
-              Донъти, които Габи е изяла: {this.state.counter}
+              Donuts eaten: {this.state.counter}
             </h2>
             <h2 className="tc h3">
-              Калории: {Math.round(this.state.calories * 100) / 100} kcal
+              Calories: {Math.round(this.state.calories * 100) / 100} kcal
             </h2>
             <div className="container12 flex justify-center justify-between">
               <DropTarget targetKey="foo" onHit={this.onEat}>
-                <Gabi />
+                <DonutMonster />
               </DropTarget>
 
               <div className="donutBox mv5">
@@ -142,7 +142,7 @@ class App extends Component {
                   className="btn btn-dark"
                   onClick={this.fillBox}
                 >
-                  Напълни кутията с донъти
+                  Refill the box with tasty donuts
                 </button>
               </div>
             </div>
