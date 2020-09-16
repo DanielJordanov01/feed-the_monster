@@ -1,4 +1,4 @@
-![FeedThemonster](https://giphy.com/gifs/xMGRiywb2EgldsdRly)
+![Gif](https://giphy.com/gifs/xMGRiywb2EgldsdRly)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
